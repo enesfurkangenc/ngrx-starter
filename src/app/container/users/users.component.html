@@ -1,0 +1,18 @@
+<app-user-card
+  *ngFor="let item of user$ | async"
+  [UserName]="item.username"
+  [Name]="item.name"
+  [Email]="item.email"
+  [loading]="isLoading$ | async"
+  (selectUser)="onSelect(item.id, item)"
+  (deleteUser)="deleteUser(item.id)"
+>
+</app-user-card>
+
+<a [routerLink]="['/user']" nz-button nzType="primary">
+  <i nz-icon nzType="arrow-right"></i>
+  User Detail
+</a>
+<button nz-button nzType="danger" nzBlock (click)="deleteAll()">
+  Delete All
+</button>

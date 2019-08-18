@@ -1,0 +1,27 @@
+<nz-skeleton
+  [nzActive]="true"
+  [nzLoading]="loading"
+  style="margin-bottom: 10px"
+>
+  <nz-card nzHoverable nzTitle="{{ Name }}" [nzExtra]="extraTemplate">
+    <nz-card-meta
+      nzTitle="{{ UserName }}"
+      nzDescription="{{ Email }}"
+    ></nz-card-meta>
+  </nz-card>
+</nz-skeleton>
+<ng-template #extraTemplate>
+  <button
+    nz-button
+    nzType="danger"
+    (click)="deleteUser.emit(userId)"
+    style="margin-right: 3px"
+  >
+    <i nz-icon nzType="delete"></i>
+    Delete Item
+  </button>
+  <button nz-button nzType="default" (click)="selectUser.emit(userId)">
+    <i nz-icon nzType="search"></i>
+    Detail
+  </button>
+</ng-template>
